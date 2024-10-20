@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{userTag}} - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/2382-auto-mod-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <img src="{{botAvatar}}" alt="Bot Logo" class="navbar-logo-img">
+                <span>{{userTag}}</span>
+            </a>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="#comandos">Comandos</a></li>
+                <li><a href="#servers">Servidores</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="inicio">
+           <img src="{{botBanner}}" alt="Banner del Bot" class="bot-banner">
+        <div  class="bot-info">
+            <img src="{{botAvatar}}" alt="Bot Avatar" class="bot-avatar">
+            <h3>{{userTag}}</h3>
+            <p><strong>Usuarios: </strong><span id="users" class="badge1">{{users}}</span></p>
+            <p><strong>Servidores:</strong> <span id="guilds" class="badge1">{{guilds}}</span></p>
+            <p><strong>Comandos:</strong> <span id="cmds" class="badge1">{{commandCount}}</span></p>
+            <p class="bot-status"><strong>Estado:</strong> <span class="status" style="color: {{statusColor}};">{{botStatus}}</span></p>
+            <p class="about-me"><span class="stats-value">{{botDescription}}</span></p>
+        </div>
+    </header>
+
+    <!-- Comandos -->
+    <section id="comandos" class="commands-section">
+        <h3 class="section-title">Comandos:</h3>
+        <ul id="commands-list" class="commands-list">
+            {{#each commands}}
+            <li class="command-item">
+                <strong>{{name}}:</strong> {{description}}
+            </li>
+            {{/each}}
+        </ul>
+        <button id="toggle-btn" class="toggle-btn">Mostrar más</button>
+    </section>
+
+    <!-- Servidores -->
+    <section id="servers">
+        <h2 class="section-title">Servidores</h2>
+        <div class="servers-container">
+            {{#each serverDetails}}
+            <div class="server-card">
+                <div class="server-banner-container">
+                    <img src="{{this.banner}}" alt="Server Banner" class="server-banner">
+                </div>
+                <div class="server-avatar-container">
+                    <img src="{{this.avatar}}" alt="Server Avatar" class="server-avatar">
+                </div>
+                <div class="server-info">
+                    <h3 class="server-name">{{this.name}}</h3>
+                    <p><strong>Usuarios:</strong> {{this.userCount}}</p>
+                    <p><strong>Bots:</strong> {{this.botCount}}</p>
+                    <p><strong>ID:</strong> {{this.id}}</p>
+                    <p><strong>Fecha de Unión:</strong> {{this.joinedAt}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 2024 {{userTag}}. Todos los derechos reservados.</p>
+                <p>Creado por {{userTag}}. | <a href="mailto:{{contactEmail}}">Contacto</a></p>
+            </div>
+            <div class="footer-links">
+                <a href="/about">Sobre Nosotros</a> |
+                <a href="/privacy-policy">Política de Privacidad</a> |
+                <a href="/terms">Términos de Servicio</a> |
+                <a href="/faq">FAQ</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/luna_net1589/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a> |
+                <a href="https://discord.gg/jyggC9zXg4" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+
+            </div>
+            <div class="footer-disclaimer">
+                <p>Este es un proyecto no oficial y no está afiliado con Discord.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="/js/commands.js"></script>
+    <script src="/js/navbar.js"></script>
+</body>
+
+</html>
